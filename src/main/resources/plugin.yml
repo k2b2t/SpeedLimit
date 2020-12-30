@@ -1,0 +1,13 @@
+name: SpeedLimit
+version: ${project.version}
+main: me.loving11ish.speedlimit.SpeedLimit
+api-version: 1.13
+authors: [Loving11ish]
+description: This plugin allows an admin to limit a players movement speed on join, this also resets there speed everytime they rejoin.
+commands:
+  slhelp:
+    description: Shows the plugin help menu.
+    usage: /<command>
+  slreload:
+    description: Reloads the plugins main configuration file.
+    usage: /<command>

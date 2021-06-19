@@ -6,7 +6,7 @@
 
     <groupId>me.loving11ish</groupId>
     <artifactId>SpeedLimit</artifactId>
-    <version>4.6</version>
+    <version>4.7</version>
     <packaging>jar</packaging>
 
     <name>SpeedLimit</name>
@@ -15,7 +15,7 @@
         everytime they rejoin.
     </description>
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>1.11</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -71,7 +71,7 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.16.5-R0.1-SNAPSHOT</version>
+            <version>1.17-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

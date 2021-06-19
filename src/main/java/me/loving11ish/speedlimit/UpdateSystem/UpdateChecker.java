@@ -27,7 +27,7 @@ public class UpdateChecker {
                 }
             } catch (IOException exception) {
                 System.out.println(ChatColor.RED + "*-------------------------------------------*");
-                System.out.println(ChatColor.RED + "[SpeedLimit] - Unable to check for updates: " + exception.getMessage());
+                System.out.println(ChatColor.RED + "SpeedLimit - Unable to check for updates: " + exception.getMessage());
                 System.out.println(ChatColor.RED + "*-------------------------------------------*");
             }
         });

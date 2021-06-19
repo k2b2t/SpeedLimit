@@ -19,7 +19,7 @@ public class SLReload implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player){
             Player player = (Player) sender;
-            if (player.hasPermission("SpeedLimit.reload")){
+            if (player.hasPermission("SpeedLimit.reload")|| player.hasPermission("SpeedLimit.*")||player.isOp()){
                 Plugin.reloadConfig();
                 player.sendMessage(ChatColor.YELLOW + "[---------------------------------------------------]");
                 player.sendMessage(ChatColor.GREEN + "[SpeedLimit] plugin by Loving11ish");
@@ -31,8 +31,8 @@ public class SLReload implements CommandExecutor {
         }else if (!(sender instanceof Player)){
             Plugin.reloadConfig();
             System.out.println(ChatColor.YELLOW + "[---------------------------------------------------]");
-            System.out.println(ChatColor.GREEN + "[SpeedLimit] plugin by Loving11ish");
-            System.out.println(ChatColor.GREEN + "[SpeedLimit] Configuration file has been successfully reloaded!");
+            System.out.println(ChatColor.GREEN + "SpeedLimit plugin by Loving11ish");
+            System.out.println(ChatColor.GREEN + "SpeedLimit Configuration file has been successfully reloaded!");
             System.out.println(ChatColor.YELLOW + "[---------------------------------------------------]");
         }
         return true;

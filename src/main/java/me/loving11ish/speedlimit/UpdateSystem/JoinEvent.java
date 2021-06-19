@@ -18,11 +18,11 @@ public class JoinEvent implements Listener {
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
-        if (player.hasPermission("SpeedLimit.update")) {
+        if (player.hasPermission("SpeedLimit.update")|| player.hasPermission("SpeedLimit.*")||player.isOp()) {
             new UpdateChecker(plugin, 75269).getVersion(version -> {
                 if (!(plugin.getDescription().getVersion().equalsIgnoreCase(version))) {
                     player.sendMessage(ChatColor.DARK_RED + "*-------------------------------------------*");
-                    player.sendMessage(ChatColor.AQUA + "       [SpeedLimit] " + ChatColor.RED + "- A new version is available!");
+                    player.sendMessage(ChatColor.AQUA + "       SpeedLimit " + ChatColor.RED + "- A new version is available!");
                     player.sendMessage(ChatColor.DARK_RED + "*-------------------------------------------*");
                 }
             });

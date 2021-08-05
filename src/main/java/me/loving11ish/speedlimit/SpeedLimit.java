@@ -68,11 +68,11 @@ public final class SpeedLimit extends JavaPlugin {
         new UpdateChecker(this, 75269).getVersion(version -> {
             if (this.getDescription().getVersion().equalsIgnoreCase(version)) {
                 logger.info(ChatColor.GREEN + "*-------------------------------------------*");
-                logger.info(ChatColor.GREEN + "SpeedLimit - Plugin is up to date");
+                logger.info(ChatColor.AQUA + "SpeedLimit" + ChatColor.GREEN + " - Plugin is up to date");
                 logger.info(ChatColor.GREEN + "*-------------------------------------------*");
             }else {
                 logger.warning(ChatColor.RED + "*-------------------------------------------*");
-                logger.warning(ChatColor.RED + "SpeedLimit - A new version is available!");
+                logger.warning(ChatColor.AQUA + "SpeedLimit" + ChatColor.RED + " - A new version is available!");
                 logger.warning(ChatColor.RED + "*-------------------------------------------*");
             }
         });

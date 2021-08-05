@@ -8,22 +8,17 @@ import org.bukkit.event.player.PlayerToggleFlightEvent;
 
 public class FlightEvent implements Listener {
 
-    SpeedLimit Plugin;
-
-    public FlightEvent(SpeedLimit plugin) {
-        Plugin = plugin;
-    }
-
     @EventHandler
     public void OnFlightEvent(PlayerToggleFlightEvent event) {
         Player player = (Player) event.getPlayer();
-        if (Plugin.getConfig().getList("Disabled-Worlds").contains(player.getWorld().getName())){
+        if (SpeedLimit.getPlugin().getConfig().getList("Disabled-Worlds").contains(player.getWorld().getName())){
             player.setFlySpeed((float) 0.1);
         }
-        if (!(Plugin.getConfig().getList("Disabled-Worlds").contains(player.getWorld().getName()))){
-            if (!(player.hasPermission("SpeedLimit.bypass.flying")||player.hasPermission("SpeedLimit.bypass.*")|| player.hasPermission("SpeedLimit.*")||player.isOp())) {
-                if (Plugin.getConfig().getBoolean("Enable-flying-limit")) {
-                    player.setFlySpeed((float) Plugin.getConfig().getDouble("Flying-speed-limit"));
+        if (!(SpeedLimit.getPlugin().getConfig().getList("Disabled-Worlds").contains(player.getWorld().getName()))){
+            if (!(player.hasPermission("SpeedLimit.bypass.flying")||player.hasPermission("SpeedLimit.bypass.*")
+                    || player.hasPermission("SpeedLimit.*")||player.isOp())) {
+                if (SpeedLimit.getPlugin().getConfig().getBoolean("Enable-flying-limit")) {
+                    player.setFlySpeed((float) SpeedLimit.getPlugin().getConfig().getDouble("Flying-speed-limit"));
                 }
             }else {
                 player.setFlySpeed((float) 0.1);

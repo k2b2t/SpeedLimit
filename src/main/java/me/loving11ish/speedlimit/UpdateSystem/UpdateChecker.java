@@ -1,5 +1,6 @@
 package me.loving11ish.speedlimit.UpdateSystem;
 
+import me.loving11ish.speedlimit.SpeedLimit;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.Plugin;
@@ -9,10 +10,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 public class UpdateChecker {
     private Plugin plugin;
     private int resourceId;
+    Logger logger = SpeedLimit.getPlugin().getLogger();
 
     public UpdateChecker(Plugin plugin, int resourceId) {
         this.plugin = plugin;
@@ -26,9 +29,9 @@ public class UpdateChecker {
                     consumer.accept(scanner.next());
                 }
             } catch (IOException exception) {
-                System.out.println(ChatColor.RED + "*-------------------------------------------*");
-                System.out.println(ChatColor.RED + "SpeedLimit - Unable to check for updates: " + exception.getMessage());
-                System.out.println(ChatColor.RED + "*-------------------------------------------*");
+                logger.warning(ChatColor.RED + "*-------------------------------------------*");
+                logger.warning(ChatColor.RED + "SpeedLimit - Unable to check for updates: " + exception.getMessage());
+                logger.warning(ChatColor.RED + "*-------------------------------------------*");
             }
         });
     }

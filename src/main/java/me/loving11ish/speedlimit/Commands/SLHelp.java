@@ -7,13 +7,12 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.logging.Logger;
+
 public class SLHelp implements CommandExecutor {
 
-    SpeedLimit Plugin;
+    Logger logger = SpeedLimit.getPlugin().getLogger();
 
-    public SLHelp(SpeedLimit plugin) {
-        Plugin = plugin;
-    }
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player){
@@ -32,15 +31,15 @@ public class SLHelp implements CommandExecutor {
                 player.sendMessage(ChatColor.DARK_RED + "You do not have the permission 'SpeedLimit.help' required to execute that command!");
             }
         }else if (!(sender instanceof Player)){
-            System.out.println(ChatColor.YELLOW + "[---------------------------------------------------]");
-            System.out.println(ChatColor.GREEN + "SpeedLimit " + ChatColor.WHITE + "/slreload " + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "This command reloads the main config file.");
-            System.out.println(ChatColor.GREEN + "SpeedLimit " + ChatColor.WHITE + "/slhelp " + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "This command shows this help menu.");
-            System.out.println(ChatColor.GREEN + "SpeedLimit " + ChatColor.AQUA + "Permissions:");
-            System.out.println(ChatColor.GREEN + "SpeedLimit " + ChatColor.WHITE + "/slreload " + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "SpeedLimit.reload");
-            System.out.println(ChatColor.GREEN + "SpeedLimit " + ChatColor.WHITE + "/slhelp " + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "SpeedLimit.help");
-            System.out.println(ChatColor.GREEN + "SpeedLimit " + ChatColor.WHITE + "Walking Bypass: " + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "SpeedLimit.bypass.walking");
-            System.out.println(ChatColor.GREEN + "SpeedLimit " + ChatColor.WHITE + "Flying Bypass: " + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "SpeedLimit.bypass.flying");
-            System.out.println(ChatColor.YELLOW + "[---------------------------------------------------]");
+            logger.info(ChatColor.YELLOW + "[---------------------------------------------------]");
+            logger.info(ChatColor.GREEN + "SpeedLimit " + ChatColor.WHITE + "/slreload " + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "This command reloads the main config file.");
+            logger.info(ChatColor.GREEN + "SpeedLimit " + ChatColor.WHITE + "/slhelp " + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "This command shows this help menu.");
+            logger.info(ChatColor.GREEN + "SpeedLimit " + ChatColor.AQUA + "Permissions:");
+            logger.info(ChatColor.GREEN + "SpeedLimit " + ChatColor.WHITE + "/slreload " + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "SpeedLimit.reload");
+            logger.info(ChatColor.GREEN + "SpeedLimit " + ChatColor.WHITE + "/slhelp " + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "SpeedLimit.help");
+            logger.info(ChatColor.GREEN + "SpeedLimit " + ChatColor.WHITE + "Walking Bypass: " + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "SpeedLimit.bypass.walking");
+            logger.info(ChatColor.GREEN + "SpeedLimit " + ChatColor.WHITE + "Flying Bypass: " + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "SpeedLimit.bypass.flying");
+            logger.info(ChatColor.YELLOW + "[---------------------------------------------------]");
         }
         return true;
     }

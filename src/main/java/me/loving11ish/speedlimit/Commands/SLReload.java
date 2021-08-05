@@ -7,33 +7,31 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.logging.Logger;
+
 public class SLReload implements CommandExecutor {
 
-    SpeedLimit Plugin;
-
-    public SLReload(SpeedLimit plugin) {
-        Plugin = plugin;
-    }
+    Logger logger = SpeedLimit.getPlugin().getLogger();
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player){
             Player player = (Player) sender;
             if (player.hasPermission("SpeedLimit.reload")|| player.hasPermission("SpeedLimit.*")||player.isOp()){
-                Plugin.reloadConfig();
+                SpeedLimit.getPlugin().reloadConfig();
                 player.sendMessage(ChatColor.YELLOW + "[---------------------------------------------------]");
-                player.sendMessage(ChatColor.GREEN + "[SpeedLimit] plugin by Loving11ish");
-                player.sendMessage(ChatColor.GREEN + "[SpeedLimit] Configuration file has been successfully reloaded!");
+                player.sendMessage(ChatColor.GREEN + "[SpeedLimit] - plugin by Loving11ish");
+                player.sendMessage(ChatColor.GREEN + "[SpeedLimit] - Configuration file has been successfully reloaded!");
                 player.sendMessage(ChatColor.YELLOW + "[---------------------------------------------------]");
             }else {
                 player.sendMessage(ChatColor.DARK_RED + "You do not have the permission 'SpeedLimit.reload' required to execute that command!");
             }
         }else if (!(sender instanceof Player)){
-            Plugin.reloadConfig();
-            System.out.println(ChatColor.YELLOW + "[---------------------------------------------------]");
-            System.out.println(ChatColor.GREEN + "SpeedLimit plugin by Loving11ish");
-            System.out.println(ChatColor.GREEN + "SpeedLimit Configuration file has been successfully reloaded!");
-            System.out.println(ChatColor.YELLOW + "[---------------------------------------------------]");
+            SpeedLimit.getPlugin().reloadConfig();
+            logger.info(ChatColor.YELLOW + "[---------------------------------------------------]");
+            logger.info(ChatColor.GREEN + "SpeedLimit - plugin by Loving11ish");
+            logger.info(ChatColor.GREEN + "SpeedLimit - Configuration file has been successfully reloaded!");
+            logger.info(ChatColor.YELLOW + "[---------------------------------------------------]");
         }
         return true;
     }

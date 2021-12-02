@@ -26,7 +26,7 @@ public final class SpeedLimit extends JavaPlugin {
         //Server version compatibility check
         if (!(Bukkit.getServer().getVersion().contains("1.13")||Bukkit.getServer().getVersion().contains("1.14")
                 ||Bukkit.getServer().getVersion().contains("1.15")||Bukkit.getServer().getVersion().contains("1.16")
-                ||Bukkit.getServer().getVersion().contains("1.17"))){
+                ||Bukkit.getServer().getVersion().contains("1.17")||Bukkit.getServer().getVersion().contains("1.18"))){
             logger.warning(ChatColor.RED + "-------------------------------------------");
             logger.warning(ChatColor.RED + "SpeedLimit - This plugin is only supported on the Minecraft versions listed below:");
             logger.warning(ChatColor.RED + "SpeedLimit - 1.13.x");
@@ -34,6 +34,7 @@ public final class SpeedLimit extends JavaPlugin {
             logger.warning(ChatColor.RED + "SpeedLimit - 1.15.x");
             logger.warning(ChatColor.RED + "SpeedLimit - 1.16.x");
             logger.warning(ChatColor.RED + "SpeedLimit - 1.17.x");
+            logger.warning(ChatColor.RED + "SpeedLimit - 1.18.x");
             logger.warning(ChatColor.RED + "SpeedLimit - Is now disabling!");
             logger.warning(ChatColor.RED + "-------------------------------------------");
             Bukkit.getPluginManager().disablePlugin(plugin);

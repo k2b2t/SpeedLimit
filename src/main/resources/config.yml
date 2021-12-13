@@ -1,12 +1,12 @@
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#----------------------------------------------------------------------------------#
+#----------------------------------------------------------------------------------#
 #                            ------------------------                              #
 #                            SpeedLimit Configuration                              #
 #                                 By Loving11ish                                   #
 #                            ------------------------                              #
 #                            --[mc.crapticraft.com]--                              #
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#----------------------------------------------------------------------------------#
+#----------------------------------------------------------------------------------#
 #----------------------------------------------------------------------------------#
 #For a player or group to bypass this limit, give them 'SpeedLimit.bypass.walking'.
 #This enables the SpeedLimit for the player's walking speed.
@@ -19,6 +19,19 @@ Walking-speed-limit: 0.10
 Enable-flying-limit: true
 #This sets the maximum speed that the player can fly at. (0.00 to 1.00)
 Flying-speed-limit: 0.02
+#----------------------------------------------------------------------------------#
+#----------------------------------------------------------------------------------#
+#          THIS IS CURRENTLY EXPERIMENTAL!  BUGS SHOULD BE EXPECTED!!
+#For a player or group to bypass this limit, give them 'SpeedLimit.bypass.elytra'.
+#This enables the SpeedLimit for the player's elytra flying speed.
+Enable-elytra-limit: true
+#This sets the maximum speed that the player can elytra fly at. (1.0 to 5.0)
+#Speed Multiplier Limits:
+#(Relaxed: 5.0, Default: 2.5, More strict: 2.0, Extremely Strict: 1.0)
+Elytra-speed-limit: 2.5
+#Do you want to send a warning message to the player?
+Send-warning-message: true
+#----------------------------------------------------------------------------------#
 #----------------------------------------------------------------------------------#
 #Do you wish to disable the SpeedLimits in certain worlds?
 #Enter the world names in the list below (they are case sensitive)

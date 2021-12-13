@@ -26,6 +26,7 @@ public class SLHelp implements CommandExecutor {
                 player.sendMessage(ChatColor.GREEN + "[SpeedLimit] " + ChatColor.WHITE + "/slhelp " + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "SpeedLimit.help");
                 player.sendMessage(ChatColor.GREEN + "[SpeedLimit] " + ChatColor.WHITE + "Walking Bypass: " + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "SpeedLimit.bypass.walking");
                 player.sendMessage(ChatColor.GREEN + "[SpeedLimit] " + ChatColor.WHITE + "Flying Bypass: " + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "SpeedLimit.bypass.flying");
+                player.sendMessage(ChatColor.GREEN + "[SpeedLimit] " + ChatColor.WHITE + "Elytra Bypass: " + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "SpeedLimit.bypass.elytra");
                 player.sendMessage(ChatColor.YELLOW + "[---------------------------------------------------]");
             }else {
                 player.sendMessage(ChatColor.DARK_RED + "You do not have the permission 'SpeedLimit.help' required to execute that command!");
@@ -39,6 +40,7 @@ public class SLHelp implements CommandExecutor {
             logger.info(ChatColor.GREEN + "SpeedLimit " + ChatColor.WHITE + "/slhelp " + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "SpeedLimit.help");
             logger.info(ChatColor.GREEN + "SpeedLimit " + ChatColor.WHITE + "Walking Bypass: " + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "SpeedLimit.bypass.walking");
             logger.info(ChatColor.GREEN + "SpeedLimit " + ChatColor.WHITE + "Flying Bypass: " + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "SpeedLimit.bypass.flying");
+            logger.info(ChatColor.GREEN + "SpeedLimit " + ChatColor.WHITE + "Elytra Bypass: " + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "SpeedLimit.bypass.elytra");
             logger.info(ChatColor.YELLOW + "[---------------------------------------------------]");
         }
         return true;

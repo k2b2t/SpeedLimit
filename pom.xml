@@ -6,7 +6,7 @@
 
     <groupId>me.loving11ish</groupId>
     <artifactId>SpeedLimit</artifactId>
-    <version>5.1</version>
+    <version>5.2-BETA</version>
     <packaging>jar</packaging>
 
     <name>SpeedLimit</name>
@@ -15,7 +15,7 @@
         everytime they rejoin.
     </description>
     <properties>
-        <java.version>11.0.13</java.version>
+        <java.version>11</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 

@@ -1,5 +1,6 @@
 package me.loving11ish.speedlimit.Commands;
 
+import me.loving11ish.speedlimit.Events.ElytraFlightEvent;
 import me.loving11ish.speedlimit.SpeedLimit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -19,15 +20,17 @@ public class SLReload implements CommandExecutor {
             Player player = (Player) sender;
             if (player.hasPermission("SpeedLimit.reload")|| player.hasPermission("SpeedLimit.*")||player.isOp()){
                 SpeedLimit.getPlugin().reloadConfig();
+                ElytraFlightEvent.updateElytraVelocity();
                 player.sendMessage(ChatColor.YELLOW + "[---------------------------------------------------]");
-                player.sendMessage(ChatColor.GREEN + "[SpeedLimit] - plugin by Loving11ish");
-                player.sendMessage(ChatColor.GREEN + "[SpeedLimit] - Configuration file has been successfully reloaded!");
+                player.sendMessage(ChatColor.GREEN + "SpeedLimit - plugin by Loving11ish");
+                player.sendMessage(ChatColor.GREEN + "SpeedLimit - Configuration file has been successfully reloaded!");
                 player.sendMessage(ChatColor.YELLOW + "[---------------------------------------------------]");
             }else {
                 player.sendMessage(ChatColor.DARK_RED + "You do not have the permission 'SpeedLimit.reload' required to execute that command!");
             }
-        }else if (!(sender instanceof Player)){
+        }else {
             SpeedLimit.getPlugin().reloadConfig();
+            ElytraFlightEvent.updateElytraVelocity();
             logger.info(ChatColor.YELLOW + "[---------------------------------------------------]");
             logger.info(ChatColor.GREEN + "SpeedLimit - plugin by Loving11ish");
             logger.info(ChatColor.GREEN + "SpeedLimit - Configuration file has been successfully reloaded!");

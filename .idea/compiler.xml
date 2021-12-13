@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="SpeedLimit" target="11.0.13" />
+      <module name="SpeedLimit" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

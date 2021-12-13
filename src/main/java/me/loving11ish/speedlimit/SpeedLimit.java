@@ -2,6 +2,7 @@ package me.loving11ish.speedlimit;
 
 import me.loving11ish.speedlimit.Commands.SLHelp;
 import me.loving11ish.speedlimit.Commands.SLReload;
+import me.loving11ish.speedlimit.Events.ElytraFlightEvent;
 import me.loving11ish.speedlimit.Events.FlightEvent;
 import me.loving11ish.speedlimit.Events.PlayerMoveEvent;
 import me.loving11ish.speedlimit.UpdateSystem.JoinEvent;
@@ -57,8 +58,12 @@ public final class SpeedLimit extends JavaPlugin {
 
         //Register event listeners
         getServer().getPluginManager().registerEvents(new PlayerMoveEvent(), this);
-        getServer().getPluginManager().registerEvents(new FlightEvent(),this);
+        getServer().getPluginManager().registerEvents(new FlightEvent(), this);
+        getServer().getPluginManager().registerEvents(new ElytraFlightEvent(), this);
         getServer().getPluginManager().registerEvents(new JoinEvent(), this);
+
+        //Run elytra velocity update task
+        ElytraFlightEvent.updateElytraVelocity();
 
         //Plugin load message
         logger.info("-------------------------------------------");

@@ -4,6 +4,7 @@ import me.loving11ish.speedlimit.Commands.SLHelp;
 import me.loving11ish.speedlimit.Commands.SLReload;
 import me.loving11ish.speedlimit.Events.FlightEvent;
 import me.loving11ish.speedlimit.Events.PlayerMoveEvent;
+import me.loving11ish.speedlimit.UpdateSystem.JoinEvent;
 import me.loving11ish.speedlimit.UpdateSystem.UpdateChecker;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -22,6 +23,7 @@ public final class SpeedLimit extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
+        plugin = this;
 
         //Server version compatibility check
         if (!(Bukkit.getServer().getVersion().contains("1.13")||Bukkit.getServer().getVersion().contains("1.14")
@@ -46,7 +48,6 @@ public final class SpeedLimit extends JavaPlugin {
         }
 
         //Register the config file
-        plugin = this;
         getConfig().options().copyDefaults();
         saveDefaultConfig();
 
@@ -57,6 +58,7 @@ public final class SpeedLimit extends JavaPlugin {
         //Register event listeners
         getServer().getPluginManager().registerEvents(new PlayerMoveEvent(), this);
         getServer().getPluginManager().registerEvents(new FlightEvent(),this);
+        getServer().getPluginManager().registerEvents(new JoinEvent(), this);
 
         //Plugin load message
         logger.info("-------------------------------------------");

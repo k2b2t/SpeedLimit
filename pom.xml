@@ -6,7 +6,7 @@
 
     <groupId>me.loving11ish</groupId>
     <artifactId>SpeedLimit</artifactId>
-    <version>5.0</version>
+    <version>5.1</version>
     <packaging>jar</packaging>
 
     <name>SpeedLimit</name>
@@ -15,7 +15,7 @@
         everytime they rejoin.
     </description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>11.0.13</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -43,6 +43,7 @@
                         </goals>
                         <configuration>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
+                            <outputFile>/Users/mark/IdeaProjects/${project.artifactId}-${project.version}.jar</outputFile>
                         </configuration>
                     </execution>
                 </executions>
@@ -71,7 +72,7 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.18-R0.1-SNAPSHOT</version>
+            <version>1.18.1-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

@@ -22,6 +22,8 @@ Flying-speed-limit: 0.02
 #----------------------------------------------------------------------------------#
 #----------------------------------------------------------------------------------#
 #          THIS IS CURRENTLY EXPERIMENTAL!  BUGS SHOULD BE EXPECTED!!
+#Do you want to disable the use of elyta's completely?
+Disable-all-elytra-flight: false
 #For a player or group to bypass this limit, give them 'SpeedLimit.bypass.elytra'.
 #This enables the SpeedLimit for the player's elytra flying speed.
 Enable-elytra-limit: true
@@ -29,6 +31,8 @@ Enable-elytra-limit: true
 #Speed Multiplier Limits:
 #(Relaxed: 5.0, Default: 2.5, More strict: 2.0, Extremely Strict: 1.0)
 Elytra-speed-limit: 2.5
+#If triggered, do you want to cancel the elytra event or TP the player back?
+Cancel-event-completely: false
 #Do you want to send a warning message to the player?
 Send-warning-message: true
 #----------------------------------------------------------------------------------#

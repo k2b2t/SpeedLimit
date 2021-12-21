@@ -6,12 +6,12 @@
 
     <groupId>me.loving11ish</groupId>
     <artifactId>SpeedLimit</artifactId>
-    <version>5.2.1-ALPHA</version>
+    <version>5.3</version>
     <packaging>jar</packaging>
 
     <name>SpeedLimit</name>
 
-    <description>This plugin allows an admin to limit a players movement speed on join, this also resets there speed
+    <description>This plugin allows an admin to limit a player's movement speed on join, this also resets there speed
         everytime they rejoin.
     </description>
     <properties>

@@ -7,40 +7,53 @@
 #                            --[mc.crapticraft.com]--                              #
 #----------------------------------------------------------------------------------#
 #----------------------------------------------------------------------------------#
+#                            --[Plugin Config File]--                              #
+#----------------------------------------------------------------------------------#
+#----------------------------------------------------------------------------------#
+
 #----------------------------------------------------------------------------------#
 #For a player or group to bypass this limit, give them 'SpeedLimit.bypass.walking'.
 #This enables the SpeedLimit for the player's walking speed.
-Enable-walking-limit: false
+Enable-walking-limit: false #[Default: false]
 #This sets the maximum speed that the player can walk at. (0.00 to 1.00)
-Walking-speed-limit: 0.10
+Walking-speed-limit: 0.10 #[Default: 0.10]
+#----------------------------------------------------------------------------------#
+
 #----------------------------------------------------------------------------------#
 #For a player or group to bypass this limit, give them 'SpeedLimit.bypass.flying'.
 #This enables the SpeedLimit for the player's flying speed.
-Enable-flying-limit: true
+Enable-flying-limit: true #[Default: true]
 #This sets the maximum speed that the player can fly at. (0.00 to 1.00)
-Flying-speed-limit: 0.02
+Flying-speed-limit: 0.02 #[Default: 0.02]
 #----------------------------------------------------------------------------------#
+
 #----------------------------------------------------------------------------------#
 #          THIS IS CURRENTLY EXPERIMENTAL!  BUGS SHOULD BE EXPECTED!!
 #Do you want to disable the use of elyta's completely?
-Disable-all-elytra-flight: false
+Disable-all-elytra-flight: false #[Default: false]
+
 #For a player or group to bypass this limit, give them 'SpeedLimit.bypass.elytra'.
 #This enables the SpeedLimit for the player's elytra flying speed.
-Enable-elytra-limit: true
-#This sets the maximum speed that the player can elytra fly at. (1.0 to 5.0)
-#Speed Multiplier Limits:
+Enable-elytra-limit: true #[Default: true]
+
+#This sets the maximum speed that the player can elytra fly at before the plugin
+#triggers and resets their flight speed. (1.0 to 5.0)
+#Speed Multiplier Checking Limits:
 #(Relaxed: 5.0, Default: 2.5, More strict: 2.0, Extremely Strict: 1.0)
-Elytra-speed-limit: 2.5
+Elytra-speed-limit-trigger: 2.5 #[Default: 2.5]
+
 #If triggered, do you want to cancel the elytra event or TP the player back?
-Cancel-event-completely: false
+Cancel-event-completely: false #[Default: false]
+
 #Do you want to send a warning message to the player?
-Send-warning-message: true
+Send-warning-message: true #[Default: true]
 #----------------------------------------------------------------------------------#
+
 #----------------------------------------------------------------------------------#
 #Do you wish to disable the SpeedLimits in certain worlds?
-#Enter the world names in the list below (they are case sensitive)
+#Enter the world names in the list below (THEY ARE CASE SENSITIVE)
 #Remove the '[]' and the '#' in front of the '-' listed below.
-Disabled-Worlds: []
+Disabled-Worlds: [] #[Default: NONE]
 #  - 'world_nether'
 #  - 'world_the_end'
 #----------------------------------------------------------------------------------#

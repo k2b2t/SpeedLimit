@@ -1,8 +1,8 @@
 package me.loving11ish.speedlimit.UpdateSystem;
 
 import me.loving11ish.speedlimit.SpeedLimit;
+import me.loving11ish.speedlimit.Utils.ColorUtils;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.util.Consumer;
 
@@ -13,8 +13,14 @@ import java.util.Scanner;
 import java.util.logging.Logger;
 
 public class UpdateChecker {
+
     private Plugin plugin;
     private int resourceId;
+
+    private static final String PREFIX = ColorUtils.translateColorCodes(SpeedLimit.getPlugin().messagesDataManager.getMessagesConfig().getString("Plugin-prefix"));
+    private static final String PREFIX_PLACEHOLDER = "%PREFIX%";
+    private static final String ERROR_PLACEHOLDER = "%ERROR%";
+
     Logger logger = SpeedLimit.getPlugin().getLogger();
 
     public UpdateChecker(Plugin plugin, int resourceId) {
@@ -29,9 +35,9 @@ public class UpdateChecker {
                     consumer.accept(scanner.next());
                 }
             } catch (IOException exception) {
-                logger.warning(ChatColor.RED + "*-------------------------------------------*");
-                logger.warning(ChatColor.RED + "SpeedLimit - Unable to check for updates: " + exception.getMessage());
-                logger.warning(ChatColor.RED + "*-------------------------------------------*");
+                logger.warning(ColorUtils.translateColorCodes(SpeedLimit.getPlugin().messagesDataManager.getMessagesConfig().getString("Update-check-failure-1").replace(PREFIX_PLACEHOLDER, PREFIX).replace(ERROR_PLACEHOLDER, exception.getMessage())));
+                logger.warning(ColorUtils.translateColorCodes(SpeedLimit.getPlugin().messagesDataManager.getMessagesConfig().getString("Update-check-failure-2").replace(PREFIX_PLACEHOLDER, PREFIX).replace(ERROR_PLACEHOLDER, exception.getMessage())));
+                logger.warning(ColorUtils.translateColorCodes(SpeedLimit.getPlugin().messagesDataManager.getMessagesConfig().getString("Update-check-failure-3").replace(PREFIX_PLACEHOLDER, PREFIX).replace(ERROR_PLACEHOLDER, exception.getMessage())));
             }
         });
     }

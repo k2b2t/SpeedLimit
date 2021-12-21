@@ -1,8 +1,8 @@
 package me.loving11ish.speedlimit.Events;
 
 import me.loving11ish.speedlimit.SpeedLimit;
+import me.loving11ish.speedlimit.Utils.ColorUtils;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -12,15 +12,18 @@ import org.bukkit.event.player.PlayerMoveEvent;
 public class ElytraFlightEvent implements Listener {
 
     public static Integer taskID1;
-    private static double velocityMulti;
+    private static double velocityTriggerMultiplier;
 
-    public static void updateElytraVelocity(){
+    private static final String PREFIX = SpeedLimit.getPlugin().messagesDataManager.getMessagesConfig().getString("Plugin-prefix");
+    private static final String PREFIX_PLACEHOLDER = "%PREFIX%";
+
+    public static void updateElytraTriggerValue(){
         taskID1 = Bukkit.getScheduler().scheduleSyncDelayedTask(SpeedLimit.getPlugin(), new Runnable() {
             @Override
             public void run() {
-                velocityMulti = SpeedLimit.getPlugin().getConfig().getDouble("Elytra-speed-limit");
+                velocityTriggerMultiplier = SpeedLimit.getPlugin().getConfig().getDouble("Elytra-speed-limit-trigger");
             }
-        }, 20);
+        }, 10);
     }
 
     @EventHandler
@@ -36,7 +39,9 @@ public class ElytraFlightEvent implements Listener {
                 Location location = new Location(player.getWorld(), x, y, z, yaw, pitch);
                 player.setGliding(false);
                 player.teleport(location);
-                player.sendMessage(ChatColor.RED + "Elytra's have been disabled by and administrator");
+                player.sendMessage(ColorUtils.translateColorCodes(
+                        SpeedLimit.getPlugin().messagesDataManager.getMessagesConfig().getString("Elytras-disabled-warning")
+                                .replace(PREFIX_PLACEHOLDER, PREFIX)));
             }
             return;
         }
@@ -51,17 +56,19 @@ public class ElytraFlightEvent implements Listener {
             return;
         }
         if (player.isGliding()){
-            if (Math.abs(event.getFrom().getX() - event.getTo().getX()) > velocityMulti
-                    ||Math.abs(event.getFrom().getY() - event.getTo().getY()) > velocityMulti
-                    ||Math.abs(event.getFrom().getZ() - event.getTo().getZ()) > velocityMulti){
-                Location oldLocation = new Location(player.getWorld(), x, y, z, yaw, pitch);
+            if (Math.abs(event.getFrom().getX() - event.getTo().getX()) > velocityTriggerMultiplier
+                    ||Math.abs(event.getFrom().getY() - event.getTo().getY()) > velocityTriggerMultiplier
+                    ||Math.abs(event.getFrom().getZ() - event.getTo().getZ()) > velocityTriggerMultiplier){
+               Location oldLocation = new Location(player.getWorld(), x, y, z, yaw, pitch);
                 if (SpeedLimit.getPlugin().getConfig().getBoolean("Cancel-event-completely")){
                     event.setCancelled(true);
                 }else {
                     player.teleport(oldLocation);
                 }
                 if (SpeedLimit.getPlugin().getConfig().getBoolean("Send-warning-message")){
-                    player.sendMessage(ChatColor.RED + "You are flying too fast! Slow down!");
+                    player.sendMessage(ColorUtils.translateColorCodes(
+                            SpeedLimit.getPlugin().messagesDataManager.getMessagesConfig().getString("Elytra-triggered-warning")
+                                    .replace(PREFIX_PLACEHOLDER, PREFIX)));
                 }
             }
         }

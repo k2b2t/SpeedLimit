@@ -10,7 +10,7 @@ public class FlightEvent implements Listener {
 
     @EventHandler
     public void OnFlightEvent(PlayerToggleFlightEvent event) {
-        Player player = (Player) event.getPlayer();
+        Player player = event.getPlayer();
         if (SpeedLimit.getPlugin().getConfig().getList("Disabled-Worlds").contains(player.getWorld().getName())){
             player.setFlySpeed((float) 0.1);
         }

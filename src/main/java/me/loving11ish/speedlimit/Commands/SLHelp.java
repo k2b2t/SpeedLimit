@@ -1,7 +1,7 @@
 package me.loving11ish.speedlimit.Commands;
 
 import me.loving11ish.speedlimit.SpeedLimit;
-import org.bukkit.ChatColor;
+import me.loving11ish.speedlimit.Utils.ColorUtils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -11,6 +11,9 @@ import java.util.logging.Logger;
 
 public class SLHelp implements CommandExecutor {
 
+    private static final String PREFIX = ColorUtils.translateColorCodes(SpeedLimit.getPlugin().messagesDataManager.getMessagesConfig().getString("Plugin-prefix"));
+    private static final String PREFIX_PLACEHOLDER = "%PREFIX%";
+
     Logger logger = SpeedLimit.getPlugin().getLogger();
 
     @Override
@@ -18,30 +21,32 @@ public class SLHelp implements CommandExecutor {
         if (sender instanceof Player){
             Player player = (Player) sender;
             if (player.hasPermission("SpeedLimit.help")||player.hasPermission("SpeedLimit.*")||player.isOp()){
-                player.sendMessage(ChatColor.YELLOW + "[---------------------------------------------------]");
-                player.sendMessage(ChatColor.GREEN + "[SpeedLimit] " + ChatColor.WHITE + "/slreload " + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "This command reloads the main config file.");
-                player.sendMessage(ChatColor.GREEN + "[SpeedLimit] " + ChatColor.WHITE + "/slhelp " + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "This command shows this help menu.");
-                player.sendMessage(ChatColor.GREEN + "[SpeedLimit] " + ChatColor.AQUA + "Permissions:");
-                player.sendMessage(ChatColor.GREEN + "[SpeedLimit] " + ChatColor.WHITE + "/slreload " + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "SpeedLimit.reload");
-                player.sendMessage(ChatColor.GREEN + "[SpeedLimit] " + ChatColor.WHITE + "/slhelp " + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "SpeedLimit.help");
-                player.sendMessage(ChatColor.GREEN + "[SpeedLimit] " + ChatColor.WHITE + "Walking Bypass: " + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "SpeedLimit.bypass.walking");
-                player.sendMessage(ChatColor.GREEN + "[SpeedLimit] " + ChatColor.WHITE + "Flying Bypass: " + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "SpeedLimit.bypass.flying");
-                player.sendMessage(ChatColor.GREEN + "[SpeedLimit] " + ChatColor.WHITE + "Elytra Bypass: " + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "SpeedLimit.bypass.elytra");
-                player.sendMessage(ChatColor.YELLOW + "[---------------------------------------------------]");
+                player.sendMessage(ColorUtils.translateColorCodes(SpeedLimit.getPlugin().messagesDataManager.getMessagesConfig().getString("Plugin-help-1").replace(PREFIX_PLACEHOLDER, PREFIX)));
+                player.sendMessage(ColorUtils.translateColorCodes(SpeedLimit.getPlugin().messagesDataManager.getMessagesConfig().getString("Plugin-help-2").replace(PREFIX_PLACEHOLDER, PREFIX)));
+                player.sendMessage(ColorUtils.translateColorCodes(SpeedLimit.getPlugin().messagesDataManager.getMessagesConfig().getString("Plugin-help-3").replace(PREFIX_PLACEHOLDER, PREFIX)));
+                player.sendMessage(ColorUtils.translateColorCodes(SpeedLimit.getPlugin().messagesDataManager.getMessagesConfig().getString("Plugin-help-4").replace(PREFIX_PLACEHOLDER, PREFIX)));
+                player.sendMessage(ColorUtils.translateColorCodes(SpeedLimit.getPlugin().messagesDataManager.getMessagesConfig().getString("Plugin-help-5").replace(PREFIX_PLACEHOLDER, PREFIX)));
+                player.sendMessage(ColorUtils.translateColorCodes(SpeedLimit.getPlugin().messagesDataManager.getMessagesConfig().getString("Plugin-help-6").replace(PREFIX_PLACEHOLDER, PREFIX)));
+                player.sendMessage(ColorUtils.translateColorCodes(SpeedLimit.getPlugin().messagesDataManager.getMessagesConfig().getString("Plugin-help-7").replace(PREFIX_PLACEHOLDER, PREFIX)));
+                player.sendMessage(ColorUtils.translateColorCodes(SpeedLimit.getPlugin().messagesDataManager.getMessagesConfig().getString("Plugin-help-8").replace(PREFIX_PLACEHOLDER, PREFIX)));
+                player.sendMessage(ColorUtils.translateColorCodes(SpeedLimit.getPlugin().messagesDataManager.getMessagesConfig().getString("Plugin-help-9").replace(PREFIX_PLACEHOLDER, PREFIX)));
+                player.sendMessage(ColorUtils.translateColorCodes(SpeedLimit.getPlugin().messagesDataManager.getMessagesConfig().getString("Plugin-help-10").replace(PREFIX_PLACEHOLDER, PREFIX)));
+                player.sendMessage(ColorUtils.translateColorCodes(SpeedLimit.getPlugin().messagesDataManager.getMessagesConfig().getString("Plugin-help-11").replace(PREFIX_PLACEHOLDER, PREFIX)));
             }else {
-                player.sendMessage(ChatColor.DARK_RED + "You do not have the permission 'SpeedLimit.help' required to execute that command!");
+                player.sendMessage(ColorUtils.translateColorCodes(SpeedLimit.getPlugin().messagesDataManager.getMessagesConfig().getString("Help-no-permission").replace(PREFIX_PLACEHOLDER, PREFIX)));
             }
-        }else if (!(sender instanceof Player)){
-            logger.info(ChatColor.YELLOW + "[---------------------------------------------------]");
-            logger.info(ChatColor.GREEN + "SpeedLimit " + ChatColor.WHITE + "/slreload " + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "This command reloads the main config file.");
-            logger.info(ChatColor.GREEN + "SpeedLimit " + ChatColor.WHITE + "/slhelp " + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "This command shows this help menu.");
-            logger.info(ChatColor.GREEN + "SpeedLimit " + ChatColor.AQUA + "Permissions:");
-            logger.info(ChatColor.GREEN + "SpeedLimit " + ChatColor.WHITE + "/slreload " + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "SpeedLimit.reload");
-            logger.info(ChatColor.GREEN + "SpeedLimit " + ChatColor.WHITE + "/slhelp " + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "SpeedLimit.help");
-            logger.info(ChatColor.GREEN + "SpeedLimit " + ChatColor.WHITE + "Walking Bypass: " + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "SpeedLimit.bypass.walking");
-            logger.info(ChatColor.GREEN + "SpeedLimit " + ChatColor.WHITE + "Flying Bypass: " + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "SpeedLimit.bypass.flying");
-            logger.info(ChatColor.GREEN + "SpeedLimit " + ChatColor.WHITE + "Elytra Bypass: " + ChatColor.GRAY + "- " + ChatColor.LIGHT_PURPLE + "SpeedLimit.bypass.elytra");
-            logger.info(ChatColor.YELLOW + "[---------------------------------------------------]");
+        }else {
+            logger.info(ColorUtils.translateColorCodes(SpeedLimit.getPlugin().messagesDataManager.getMessagesConfig().getString("Plugin-help-1").replace(PREFIX_PLACEHOLDER, PREFIX)));
+            logger.info(ColorUtils.translateColorCodes(SpeedLimit.getPlugin().messagesDataManager.getMessagesConfig().getString("Plugin-help-2").replace(PREFIX_PLACEHOLDER, PREFIX)));
+            logger.info(ColorUtils.translateColorCodes(SpeedLimit.getPlugin().messagesDataManager.getMessagesConfig().getString("Plugin-help-3").replace(PREFIX_PLACEHOLDER, PREFIX)));
+            logger.info(ColorUtils.translateColorCodes(SpeedLimit.getPlugin().messagesDataManager.getMessagesConfig().getString("Plugin-help-4").replace(PREFIX_PLACEHOLDER, PREFIX)));
+            logger.info(ColorUtils.translateColorCodes(SpeedLimit.getPlugin().messagesDataManager.getMessagesConfig().getString("Plugin-help-5").replace(PREFIX_PLACEHOLDER, PREFIX)));
+            logger.info(ColorUtils.translateColorCodes(SpeedLimit.getPlugin().messagesDataManager.getMessagesConfig().getString("Plugin-help-6").replace(PREFIX_PLACEHOLDER, PREFIX)));
+            logger.info(ColorUtils.translateColorCodes(SpeedLimit.getPlugin().messagesDataManager.getMessagesConfig().getString("Plugin-help-7").replace(PREFIX_PLACEHOLDER, PREFIX)));
+            logger.info(ColorUtils.translateColorCodes(SpeedLimit.getPlugin().messagesDataManager.getMessagesConfig().getString("Plugin-help-8").replace(PREFIX_PLACEHOLDER, PREFIX)));
+            logger.info(ColorUtils.translateColorCodes(SpeedLimit.getPlugin().messagesDataManager.getMessagesConfig().getString("Plugin-help-9").replace(PREFIX_PLACEHOLDER, PREFIX)));
+            logger.info(ColorUtils.translateColorCodes(SpeedLimit.getPlugin().messagesDataManager.getMessagesConfig().getString("Plugin-help-10").replace(PREFIX_PLACEHOLDER, PREFIX)));
+            logger.info(ColorUtils.translateColorCodes(SpeedLimit.getPlugin().messagesDataManager.getMessagesConfig().getString("Plugin-help-11").replace(PREFIX_PLACEHOLDER, PREFIX)));
         }
         return true;
     }

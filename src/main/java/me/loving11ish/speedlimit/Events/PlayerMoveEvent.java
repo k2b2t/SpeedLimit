@@ -9,7 +9,7 @@ public class PlayerMoveEvent implements Listener {
 
     @EventHandler
     public void OnPlayerWalk (org.bukkit.event.player.PlayerMoveEvent event){
-        Player player = (Player) event.getPlayer();
+        Player player = event.getPlayer();
         if (SpeedLimit.getPlugin().getConfig().getList("Disabled-Worlds").contains(player.getWorld().getName())){
             player.setWalkSpeed((float) 0.2);
         }

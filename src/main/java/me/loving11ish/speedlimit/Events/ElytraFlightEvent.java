@@ -6,6 +6,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
 
@@ -26,7 +27,7 @@ public class ElytraFlightEvent implements Listener {
         }, 10);
     }
 
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onElytraFlight(PlayerMoveEvent event){
         Player player = event.getPlayer();
         double x = event.getFrom().getX();
@@ -55,14 +56,14 @@ public class ElytraFlightEvent implements Listener {
                 ||player.hasPermission("SpeedLimit.*")||player.isOp()){
             return;
         }
-        if (player.isGliding()){
+        //if (player.isGliding()){
             if (Math.abs(event.getFrom().getX() - event.getTo().getX()) > velocityTriggerMultiplier
                     ||Math.abs(event.getFrom().getY() - event.getTo().getY()) > velocityTriggerMultiplier
                     ||Math.abs(event.getFrom().getZ() - event.getTo().getZ()) > velocityTriggerMultiplier){
                Location oldLocation = new Location(player.getWorld(), x, y, z, yaw, pitch);
                 if (SpeedLimit.getPlugin().getConfig().getBoolean("Cancel-event-completely")){
                     event.setCancelled(true);
-                }else {
+                } else {
                     player.teleport(oldLocation);
                 }
                 if (SpeedLimit.getPlugin().getConfig().getBoolean("Send-warning-message")){
@@ -71,6 +72,6 @@ public class ElytraFlightEvent implements Listener {
                                     .replace(PREFIX_PLACEHOLDER, PREFIX)));
                 }
             }
-        }
+        //}
     }
 }

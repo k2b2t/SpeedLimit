@@ -58,7 +58,7 @@ public class ElytraFlightEvent implements Listener {
         }
         //if (player.isGliding()){
             if (Math.abs(event.getFrom().getX() - event.getTo().getX()) > velocityTriggerMultiplier
-                    ||Math.abs(event.getFrom().getY() - event.getTo().getY()) > velocityTriggerMultiplier
+                    /*||Math.abs(event.getFrom().getY() - event.getTo().getY()) > velocityTriggerMultiplier*/
                     ||Math.abs(event.getFrom().getZ() - event.getTo().getZ()) > velocityTriggerMultiplier){
                Location oldLocation = new Location(player.getWorld(), x, y, z, yaw, pitch);
                 if (SpeedLimit.getPlugin().getConfig().getBoolean("Cancel-event-completely")){
